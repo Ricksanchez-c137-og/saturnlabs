@@ -10,7 +10,7 @@ function CommandConsole() {
   const [output, setOutput] = useState('');
   const [error, setError] = useState('');
 
-  const handleExecute = async (e) => {
+  const handleExecute = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
     try {
@@ -84,7 +84,7 @@ export default function Dashboard() {
     }
   };
 
-  const handleDelete = async (fileName) => {
+  const handleDelete = async (fileName: any) => {
     try {
       await fetch(`/api/files/${fileName}`, { method: 'DELETE' });
       fetchFiles(); // Refresh the file list after deletion

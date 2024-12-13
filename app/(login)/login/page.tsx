@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation'; // Use next/navigation in Next.js 13+ for client-side routing
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,12 +11,11 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
-    // Simulate login (replace with real authentication logic as needed)
     if (username === 'user' && password === 'password') {
-      router.push('/dashboard'); // Navigate to the dashboard
+      router.push('/dashboard'); 
     } else {
       setError('Invalid username or password');
     }
