@@ -12,7 +12,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'No command provided' }, { status: 400 });
     }
 
-    // Command injection vulnerability: executes user-provided command directly
     const { stdout, stderr } = await execPromise(command);
 
     if (stderr) {
